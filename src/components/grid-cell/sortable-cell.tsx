@@ -5,9 +5,18 @@ import './grid-cell.css';
 export interface Cell {
   id: string;
   value: number;
+  position: number;
 }
 
-export const SortableCell = ({ cell }: { cell: Cell }) => {
+export interface EmptyCell {
+  id: string;
+  position: number;
+  isEmpty: true;
+}
+
+export type GridItem = Cell | EmptyCell;
+
+export const SortableCell = ({ item }: { item: GridItem }) => {
   const {
     attributes,
     listeners,
@@ -15,7 +24,7 @@ export const SortableCell = ({ cell }: { cell: Cell }) => {
     transform,
     transition,
     isDragging,
-  } = useSortable({ id: cell.id });
+  } = useSortable({ id: item.id });
 
   const style = {
     transform: CSS.Transform.toString(transform),
@@ -24,15 +33,19 @@ export const SortableCell = ({ cell }: { cell: Cell }) => {
     zIndex: isDragging ? 1 : 0,
   };
 
+  const isRealCell = !('isEmpty' in item);
+
   return (
     <div
       ref={setNodeRef}
       style={style}
-      className={`grid-cell ${isDragging ? 'dragging' : ''}`}
+      className={`grid-cell ${isRealCell ? 'real-cell' : 'empty-cell'} ${
+        isDragging ? 'dragging' : ''
+      }`}
       {...attributes}
       {...listeners}
     >
-      {cell.value}
+      {isRealCell ? item.value : '-'}
     </div>
   );
 };

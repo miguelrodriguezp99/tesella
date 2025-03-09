@@ -1,14 +1,22 @@
 import { GridControls } from '../grid-controls/grid-controls';
-import { DndContext, DragOverlay, closestCenter } from '@dnd-kit/core';
+import { closestCenter, DndContext, DragOverlay } from '@dnd-kit/core';
 import { SortableContext, rectSortingStrategy } from '@dnd-kit/sortable';
-import { SortableCell } from '../grid-cell/sortable-cell';
-import './Grid.css';
-import { GridCell } from '../grid-cell/grid-cell';
+import { Cell, SortableCell } from '../grid-cell/sortable-cell';
 import { useGrid } from './use-grid';
+import { DragOverlayCell } from '../grid-cell/drag-overlay-cell';
+import './Grid.css';
 
 export const Grid = () => {
   const {
-    state: { cells, columns, rows, activeId, activeCell, sensors },
+    state: {
+      columns,
+      rows,
+      activeId,
+      gridItems,
+      sensors,
+      isRealCellActive,
+      activeItem,
+    },
     actions: { handleDragStart, handleDragEnd },
   } = useGrid();
   return (
@@ -17,11 +25,11 @@ export const Grid = () => {
 
       <DndContext
         sensors={sensors}
-        collisionDetection={closestCenter}
         onDragStart={handleDragStart}
         onDragEnd={handleDragEnd}
+        collisionDetection={closestCenter}
       >
-        <SortableContext items={cells} strategy={rectSortingStrategy}>
+        <SortableContext items={gridItems} strategy={rectSortingStrategy}>
           <div
             className="grid-container"
             style={{
@@ -29,15 +37,17 @@ export const Grid = () => {
               gridTemplateRows: `repeat(${rows}, 1fr)`,
             }}
           >
-            {cells.map((cell) => (
-              <SortableCell key={cell.id} cell={cell} />
-            ))}
+            {gridItems
+              .sort((a, b) => a.position - b.position)
+              .map((item) => (
+                <SortableCell key={item.id} item={item} />
+              ))}
           </div>
         </SortableContext>
 
         <DragOverlay>
-          {activeId && activeCell ? (
-            <GridCell value={activeCell.value} />
+          {activeId && isRealCellActive ? (
+            <DragOverlayCell value={(activeItem as Cell).value} />
           ) : null}
         </DragOverlay>
       </DndContext>

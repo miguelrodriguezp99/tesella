@@ -2,14 +2,12 @@ import { useGridContext } from '@/providers/grid-provider';
 import {
   DragEndEvent,
   DragStartEvent,
-  KeyboardSensor,
   PointerSensor,
   useSensor,
   useSensors,
 } from '@dnd-kit/core';
-import { arrayMove } from '@dnd-kit/sortable';
 import { useEffect, useState } from 'react';
-import { Cell } from '../grid-cell/sortable-cell';
+import { Cell, EmptyCell, GridItem } from '../grid-cell/sortable-cell';
 
 export const useGrid = () => {
   const {
@@ -18,16 +16,29 @@ export const useGrid = () => {
 
   const totalCells = columns * rows;
 
-  const [cells, setCells] = useState<Cell[]>([]);
+  const [gridItems, setGridItems] = useState<GridItem[]>([]);
   const [activeId, setActiveId] = useState<string | null>(null);
 
   useEffect(() => {
-    setCells(
-      Array.from({ length: totalCells }, (_, i) => ({
-        id: `cell-${i}`,
-        value: i + 1,
-      }))
+    // Create one real cell
+    const realCell: Cell = {
+      id: 'cell-1',
+      value: 1,
+      position: 0,
+    };
+
+    // Create empty cells for the rest of the grid
+    const emptyCells: EmptyCell[] = Array.from(
+      { length: totalCells - 1 },
+      (_, i) => ({
+        id: `empty-${i + 1}`,
+        position: i + 1,
+        isEmpty: true,
+      })
     );
+
+    // Combine and set
+    setGridItems([realCell, ...emptyCells]);
   }, [totalCells, columns, rows]);
 
   const sensors = useSensors(
@@ -35,8 +46,7 @@ export const useGrid = () => {
       activationConstraint: {
         distance: 8,
       },
-    }),
-    useSensor(KeyboardSensor)
+    })
   );
 
   const handleDragStart = (event: DragStartEvent) => {
@@ -45,32 +55,53 @@ export const useGrid = () => {
 
   const handleDragEnd = (event: DragEndEvent) => {
     const { active, over } = event;
+
     setActiveId(null);
 
     if (!over) return;
 
     if (active.id !== over.id) {
-      setCells((items) => {
-        const oldIndex = items.findIndex((item) => item.id === active.id);
-        const newIndex = items.findIndex((item) => item.id === over.id);
+      setGridItems((items) => {
+        // Find the indices
+        const activeIndex = items.findIndex((item) => item.id === active.id);
+        const overIndex = items.findIndex((item) => item.id === over.id);
 
-        return arrayMove(items, oldIndex, newIndex);
+        if (activeIndex === -1 || overIndex === -1) return items;
+
+        // Create a new array with the items rearranged
+        const newItems = [...items];
+
+        // Get the active item
+        const activeItem = { ...newItems[activeIndex] };
+        const overItem = { ...newItems[overIndex] };
+
+        // Update positions
+        activeItem.position = overIndex;
+        overItem.position = activeIndex;
+
+        // Swap the items
+        newItems[activeIndex] = overItem;
+        newItems[overIndex] = activeItem;
+
+        return newItems;
       });
     }
   };
 
-  const activeCell = activeId
-    ? cells.find((cell) => cell.id === activeId)
+  const activeItem = activeId
+    ? gridItems.find((item) => item.id === activeId)
     : null;
+  const isRealCellActive = activeItem && !('isEmpty' in activeItem);
 
   return {
     state: {
       columns,
       rows,
-      cells,
       activeId,
-      activeCell,
+      isRealCellActive,
       sensors,
+      gridItems,
+      activeItem,
     },
     actions: {
       handleDragStart,
