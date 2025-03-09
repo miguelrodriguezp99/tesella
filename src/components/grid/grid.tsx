@@ -1,29 +1,46 @@
-import { useGrid } from '@/providers/grid-provider';
-import { GridControls } from './grid-controls';
+import { GridControls } from '../grid-controls/grid-controls';
+import { DndContext, DragOverlay, closestCenter } from '@dnd-kit/core';
+import { SortableContext, rectSortingStrategy } from '@dnd-kit/sortable';
+import { SortableCell } from '../grid-cell/sortable-cell';
 import './Grid.css';
+import { GridCell } from '../grid-cell/grid-cell';
+import { useGrid } from './use-grid';
 
 export const Grid = () => {
   const {
-    state: { columns, rows },
+    state: { cells, columns, rows, activeId, activeCell, sensors },
+    actions: { handleDragStart, handleDragEnd },
   } = useGrid();
-
   return (
     <div className="grid-wrapper">
       <GridControls />
 
-      <div
-        className="grid-container"
-        style={{
-          gridTemplateColumns: `repeat(${columns}, 1fr)`,
-          gridTemplateRows: `repeat(${rows}, 1fr)`,
-        }}
+      <DndContext
+        sensors={sensors}
+        collisionDetection={closestCenter}
+        onDragStart={handleDragStart}
+        onDragEnd={handleDragEnd}
       >
-        {Array(rows * columns)
-          .fill(null)
-          .map((_, index) => (
-            <div key={index} className="grid-cell"></div>
-          ))}
-      </div>
+        <SortableContext items={cells} strategy={rectSortingStrategy}>
+          <div
+            className="grid-container"
+            style={{
+              gridTemplateColumns: `repeat(${columns}, 1fr)`,
+              gridTemplateRows: `repeat(${rows}, 1fr)`,
+            }}
+          >
+            {cells.map((cell) => (
+              <SortableCell key={cell.id} cell={cell} />
+            ))}
+          </div>
+        </SortableContext>
+
+        <DragOverlay>
+          {activeId && activeCell ? (
+            <GridCell value={activeCell.value} />
+          ) : null}
+        </DragOverlay>
+      </DndContext>
     </div>
   );
 };

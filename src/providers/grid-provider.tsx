@@ -79,7 +79,7 @@ export const GridProvider: React.FC<GridProviderProps> = ({
 };
 
 // eslint-disable-next-line react-refresh/only-export-components
-export const useGrid = (): GridContextType => {
+export const useGridContext = (): GridContextType => {
   const context = useContext(GridContext);
 
   if (context === undefined) {

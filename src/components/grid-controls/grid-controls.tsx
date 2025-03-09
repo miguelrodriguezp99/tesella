@@ -1,11 +1,13 @@
-import { useGrid } from '@/providers/grid-provider';
+import { useGridContext } from '@/providers/grid-provider';
 import { Button } from '../button/button';
+
+import './grid-controls.css';
 
 export const GridControls = () => {
   const {
     state: { columns, rows },
     actions: { increaseColumns, decreaseColumns, increaseRows, decreaseRows },
-  } = useGrid();
+  } = useGridContext();
 
   return (
     <div className="grid-controls">
