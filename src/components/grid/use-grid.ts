@@ -1,6 +1,7 @@
 import { useGridContext } from '@/providers/grid-provider';
 import {
   DragEndEvent,
+  DragOverEvent,
   DragStartEvent,
   PointerSensor,
   useSensor,
@@ -18,6 +19,7 @@ export const useGrid = () => {
 
   const [gridItems, setGridItems] = useState<GridItem[]>([]);
   const [activeId, setActiveId] = useState<string | null>(null);
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [nextValue, setNextValue] = useState<number>(2);
 
   useEffect(() => {
@@ -86,9 +88,7 @@ export const useGrid = () => {
   const handleEmptyCellClick = (cellId: string) => {
     setGridItems((items) => {
       const index = items.findIndex((item) => item.id === cellId);
-
       if (index === -1) return items;
-
       const item = items[index];
 
       if (!('isEmpty' in item)) return items;
@@ -107,6 +107,11 @@ export const useGrid = () => {
     });
   };
 
+  const handleDragOver = (event: DragOverEvent) => {
+    const { over } = event;
+    setHoveredId(over ? (over.id as string) : null);
+  };
+
   const activeItem = activeId
     ? gridItems.find((item) => item.id === activeId)
     : null;
@@ -117,6 +122,7 @@ export const useGrid = () => {
       columns,
       rows,
       activeId,
+      hoveredId,
       isRealCellActive,
       sensors,
       gridItems,
@@ -126,6 +132,7 @@ export const useGrid = () => {
     actions: {
       handleDragStart,
       handleDragEnd,
+      handleDragOver,
       handleEmptyCellClick,
     },
   };

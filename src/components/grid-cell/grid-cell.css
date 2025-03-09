@@ -48,7 +48,23 @@
 
 .grid-cell.real-cell.dragging {
   background-color: #1565c0;
-  animation: pulse 1.5s infinite;
+  animation: pulse 1s infinite;
+}
+
+.grid-cell.empty-cell.hovered {
+  background-color: #2c3840;
+}
+
+.grid-cell.real-cell.hovered {
+  background-color: #1976d2;
+  position: relative;
+}
+
+.grid-cell.real-cell.hovered::after {
+  position: absolute;
+  inset: 0;
+  border-radius: 4px;
+  pointer-events: none;
 }
 
 @keyframes pulse {

@@ -20,12 +20,14 @@ interface SortableCellProps {
   item: GridItem;
   onEmptyCellClick?: (cellId: string) => void;
   isSwapping?: boolean;
+  isHovered?: boolean;
 }
 
 export const SortableCell = ({
   item,
   onEmptyCellClick,
   isSwapping,
+  isHovered,
 }: SortableCellProps) => {
   const isRealCell = !('isEmpty' in item);
 
@@ -57,7 +59,7 @@ export const SortableCell = ({
       style={style}
       className={`grid-cell ${isRealCell ? 'real-cell' : 'empty-cell'} ${
         isDragging ? 'dragging' : ''
-      } ${isSwapping ? 'swapping' : ''}`}
+      } ${isSwapping ? 'swapping' : ''} ${isHovered ? 'hovered' : ''}`}
       {...(isRealCell ? attributes : {})}
       {...(isRealCell ? listeners : {})}
     >

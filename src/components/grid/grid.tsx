@@ -12,13 +12,19 @@ export const Grid = () => {
       columns,
       rows,
       activeId,
+      hoveredId,
       gridItems,
       sensors,
       isRealCellActive,
       activeItem,
       gap,
     },
-    actions: { handleDragStart, handleDragEnd, handleEmptyCellClick },
+    actions: {
+      handleDragStart,
+      handleDragEnd,
+      handleEmptyCellClick,
+      handleDragOver,
+    },
   } = useGrid();
 
   return (
@@ -29,6 +35,7 @@ export const Grid = () => {
         sensors={sensors}
         onDragStart={handleDragStart}
         onDragEnd={handleDragEnd}
+        onDragOver={handleDragOver}
         collisionDetection={closestCenter}
       >
         <SortableContext
@@ -48,6 +55,7 @@ export const Grid = () => {
                 key={item.id}
                 item={item}
                 onEmptyCellClick={handleEmptyCellClick}
+                isHovered={activeId !== null && item.id === hoveredId}
               />
             ))}
           </div>
