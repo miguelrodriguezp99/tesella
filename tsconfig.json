@@ -1,0 +1,31 @@
+{
+  "include": ["src/**/*", "@types/**/*", "test/**/*"],
+  "exclude": ["node_modules/**", "tools/i18n", "@locales/**"],
+  "compilerOptions": {
+    "target": "es5",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "inlineSourceMap": true,
+    "allowJs": true,
+    "importHelpers": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "jsx": "react-jsx",
+    "strict": true,
+    "alwaysStrict": true,
+    "resolveJsonModule": true,
+    "traceResolution": false,
+    "listEmittedFiles": false,
+    "listFiles": false,
+    "skipLibCheck": true,
+    "lib": ["es2015", "dom"],
+    "outDir": "./dist",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "config/*": ["config/*"],
+      "#/*": ["test/*"],
+      "@/providers/*": ["src/providers/*"],
+    }
+  }
+}
