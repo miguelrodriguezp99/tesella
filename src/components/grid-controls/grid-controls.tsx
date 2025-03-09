@@ -5,8 +5,15 @@ import './grid-controls.css';
 
 export const GridControls = () => {
   const {
-    state: { columns, rows },
-    actions: { increaseColumns, decreaseColumns, increaseRows, decreaseRows },
+    state: { columns, rows, gap },
+    actions: {
+      increaseColumns,
+      decreaseColumns,
+      increaseRows,
+      decreaseRows,
+      increaseGap,
+      decreaseGap,
+    },
   } = useGridContext();
 
   return (
@@ -31,6 +38,15 @@ export const GridControls = () => {
           <Button onClick={increaseRows} disabled={rows >= 12}>
             +
           </Button>
+        </div>
+      </div>
+      <div className="control-section">
+        <h3>Gap: {gap}</h3>
+        <div className="button-group">
+          <Button onClick={decreaseGap} disabled={gap <= 0}>
+            -
+          </Button>
+          <Button onClick={increaseGap}>+</Button>
         </div>
       </div>
     </div>

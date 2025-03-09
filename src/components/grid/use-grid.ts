@@ -11,23 +11,22 @@ import { Cell, EmptyCell, GridItem } from '../grid-cell/sortable-cell';
 
 export const useGrid = () => {
   const {
-    state: { columns, rows },
+    state: { columns, rows, gap },
   } = useGridContext();
 
   const totalCells = columns * rows;
 
   const [gridItems, setGridItems] = useState<GridItem[]>([]);
   const [activeId, setActiveId] = useState<string | null>(null);
+  const [nextValue, setNextValue] = useState<number>(2);
 
   useEffect(() => {
-    // Create one real cell
     const realCell: Cell = {
       id: 'cell-1',
       value: 1,
       position: 0,
     };
 
-    // Create empty cells for the rest of the grid
     const emptyCells: EmptyCell[] = Array.from(
       { length: totalCells - 1 },
       (_, i) => ({
@@ -37,8 +36,8 @@ export const useGrid = () => {
       })
     );
 
-    // Combine and set
     setGridItems([realCell, ...emptyCells]);
+    setNextValue(2);
   }, [totalCells, columns, rows]);
 
   const sensors = useSensors(
@@ -50,7 +49,12 @@ export const useGrid = () => {
   );
 
   const handleDragStart = (event: DragStartEvent) => {
-    setActiveId(event.active.id as string);
+    const { active } = event;
+
+    const item = gridItems.find((item) => item.id === active.id);
+    if (item && !('isEmpty' in item)) {
+      setActiveId(active.id as string);
+    }
   };
 
   const handleDragEnd = (event: DragEndEvent) => {
@@ -62,30 +66,45 @@ export const useGrid = () => {
 
     if (active.id !== over.id) {
       setGridItems((items) => {
-        // Find the indices
         const activeIndex = items.findIndex((item) => item.id === active.id);
         const overIndex = items.findIndex((item) => item.id === over.id);
 
         if (activeIndex === -1 || overIndex === -1) return items;
 
-        // Create a new array with the items rearranged
         const newItems = [...items];
 
-        // Get the active item
-        const activeItem = { ...newItems[activeIndex] };
-        const overItem = { ...newItems[overIndex] };
-
-        // Update positions
-        activeItem.position = overIndex;
-        overItem.position = activeIndex;
-
-        // Swap the items
-        newItems[activeIndex] = overItem;
-        newItems[overIndex] = activeItem;
+        [newItems[activeIndex], newItems[overIndex]] = [
+          newItems[overIndex],
+          newItems[activeIndex],
+        ];
 
         return newItems;
       });
     }
+  };
+
+  const handleEmptyCellClick = (cellId: string) => {
+    setGridItems((items) => {
+      const index = items.findIndex((item) => item.id === cellId);
+
+      if (index === -1) return items;
+
+      const item = items[index];
+
+      if (!('isEmpty' in item)) return items;
+
+      const newItems = [...items];
+
+      newItems[index] = {
+        id: cellId,
+        value: nextValue,
+        position: item.position,
+      };
+
+      setNextValue(nextValue + 1);
+
+      return newItems;
+    });
   };
 
   const activeItem = activeId
@@ -102,10 +121,12 @@ export const useGrid = () => {
       sensors,
       gridItems,
       activeItem,
+      gap,
     },
     actions: {
       handleDragStart,
       handleDragEnd,
+      handleEmptyCellClick,
     },
   };
 };

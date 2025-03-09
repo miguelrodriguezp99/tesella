@@ -16,9 +16,11 @@ export const Grid = () => {
       sensors,
       isRealCellActive,
       activeItem,
+      gap,
     },
-    actions: { handleDragStart, handleDragEnd },
+    actions: { handleDragStart, handleDragEnd, handleEmptyCellClick },
   } = useGrid();
+
   return (
     <div className="grid-wrapper">
       <GridControls />
@@ -29,19 +31,25 @@ export const Grid = () => {
         onDragEnd={handleDragEnd}
         collisionDetection={closestCenter}
       >
-        <SortableContext items={gridItems} strategy={rectSortingStrategy}>
+        <SortableContext
+          items={gridItems.map((item) => item.id)}
+          strategy={rectSortingStrategy}
+        >
           <div
             className="grid-container"
             style={{
               gridTemplateColumns: `repeat(${columns}, 1fr)`,
               gridTemplateRows: `repeat(${rows}, 1fr)`,
+              gap: `${gap}px`,
             }}
           >
-            {gridItems
-              .sort((a, b) => a.position - b.position)
-              .map((item) => (
-                <SortableCell key={item.id} item={item} />
-              ))}
+            {gridItems.map((item) => (
+              <SortableCell
+                key={item.id}
+                item={item}
+                onEmptyCellClick={handleEmptyCellClick}
+              />
+            ))}
           </div>
         </SortableContext>
 
