@@ -1,110 +1,115 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
+import { Layout } from 'react-grid-layout';
 
-interface GridState {
-  columns: number;
+const MAX_COLS = 12;
+const MAX_ROWS = 12;
+const MAX_GAP = 30;
+
+interface GridConfigContextType {
+  cols: number;
   rows: number;
+  rowHeight: number;
   gap: number;
+  layout: Layout[];
+  setLayout: (layout: Layout[]) => void;
+  incrementCols: () => void;
+  decrementCols: () => void;
+  incrementRows: () => void;
+  decrementRows: () => void;
+  incrementRowHeight: () => void;
+  decrementRowHeight: () => void;
+  incrementGap: () => void;
+  decrementGap: () => void;
 }
 
-interface GridActions {
-  increaseColumns: () => void;
-  decreaseColumns: () => void;
-  increaseRows: () => void;
-  decreaseRows: () => void;
-  increaseGap: () => void;
-  decreaseGap: () => void;
-}
+const GridConfigContext = createContext<GridConfigContextType | undefined>(
+  undefined
+);
 
-interface GridContextType {
-  state: GridState;
-  actions: GridActions;
-}
-
-const INITIAL_COLS = 6;
-const INITIAL_ROWS = 6;
-const MAX_GRID_SIZE = 12;
-const MIN_GRID_SIZE = 1;
-const INITIAL_GAP_SIZE = 8;
-
-const GridContext = createContext<GridContextType | undefined>(undefined);
-
-interface GridProviderProps {
+interface GridConfigProviderProps {
   children: ReactNode;
   initialCols?: number;
   initialRows?: number;
+  initialRowHeight?: number;
   initialGap?: number;
 }
 
-export const GridProvider: React.FC<GridProviderProps> = ({
+export const GridConfigProvider: React.FC<GridConfigProviderProps> = ({
   children,
-  initialCols = INITIAL_COLS,
-  initialRows = INITIAL_ROWS,
-  initialGap = INITIAL_GAP_SIZE,
+  initialCols = 12,
+  initialRows = 10,
+  initialRowHeight = 100,
+  initialGap = 10,
 }) => {
-  const [columns, setColumns] = useState<number>(initialCols);
-  const [rows, setRows] = useState<number>(initialRows);
-  const [gap, setGap] = useState<number>(initialGap);
+  const [cols, setCols] = useState<number>(Math.min(initialCols, MAX_COLS));
+  const [rows, setRows] = useState<number>(Math.min(initialRows, MAX_ROWS));
+  const [rowHeight, setRowHeight] = useState<number>(initialRowHeight);
+  const [gap, setGap] = useState<number>(Math.min(initialGap, MAX_GAP));
 
-  const increaseColumns = () => {
-    if (columns < MAX_GRID_SIZE) {
-      setColumns(columns + 1);
-    }
+  const [layout, setLayout] = useState<Layout[]>([
+    { i: '1', x: 0, y: 0, w: 1, h: 1 },
+  ]);
+
+  const incrementCols = () => {
+    setCols((prev) => Math.min(prev + 1, MAX_COLS));
   };
 
-  const decreaseColumns = () => {
-    if (columns > MIN_GRID_SIZE) {
-      setColumns(columns - 1);
-    }
+  const decrementCols = () => {
+    setCols((prev) => Math.max(prev - 1, 1));
   };
 
-  const increaseRows = () => {
-    if (rows < MAX_GRID_SIZE) {
-      setRows(rows + 1);
-    }
+  const incrementRows = () => {
+    setRows((prev) => Math.min(prev + 1, MAX_ROWS));
   };
 
-  const decreaseRows = () => {
-    if (rows > MIN_GRID_SIZE) {
-      setRows(rows - 1);
-    }
+  const decrementRows = () => {
+    setRows((prev) => Math.max(prev - 1, 1));
   };
 
-  const increaseGap = () => {
-    setGap(gap + 1);
+  const incrementRowHeight = () => {
+    setRowHeight((prev) => prev + 1);
   };
 
-  const decreaseGap = () => {
-    if (gap > 0) {
-      setGap(gap - 1);
-    }
+  const decrementRowHeight = () => {
+    setRowHeight((prev) => Math.max(prev - 1, 1));
+  };
+
+  const incrementGap = () => {
+    setGap((prev) => Math.min(prev + 1, MAX_GAP));
+  };
+
+  const decrementGap = () => {
+    setGap((prev) => Math.max(prev - 1, 0));
   };
 
   const value = {
-    state: {
-      columns,
-      rows,
-      gap,
-    },
-    actions: {
-      increaseColumns,
-      decreaseColumns,
-      increaseRows,
-      decreaseRows,
-      increaseGap,
-      decreaseGap,
-    },
+    cols,
+    rows,
+    rowHeight,
+    gap,
+    layout,
+    setLayout,
+    incrementCols,
+    decrementCols,
+    incrementRows,
+    decrementRows,
+    incrementRowHeight,
+    decrementRowHeight,
+    incrementGap,
+    decrementGap,
   };
 
-  return <GridContext.Provider value={value}>{children}</GridContext.Provider>;
+  return (
+    <GridConfigContext.Provider value={value}>
+      {children}
+    </GridConfigContext.Provider>
+  );
 };
 
-// eslint-disable-next-line react-refresh/only-export-components
-export const useGridContext = (): GridContextType => {
-  const context = useContext(GridContext);
-
+export const useGridConfig = (): GridConfigContextType => {
+  const context = useContext(GridConfigContext);
   if (context === undefined) {
-    throw new Error('useGrid must be used within a GridProvider');
+    throw new Error('useGridConfig must be used within a GridConfigProvider');
   }
-
   return context;
 };

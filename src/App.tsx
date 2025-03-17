@@ -1,15 +1,16 @@
+import 'react-grid-layout/css/styles.css';
+import 'react-resizable/css/styles.css';
 import './App.css';
 import { Grid } from './components/grid/grid';
-import { Hero } from './components/hero/hero';
-import { GridProvider } from './providers/grid-provider';
+import { Controls } from './components/controls/controls';
 
-function App() {
+const App = () => {
   return (
-    <GridProvider>
-      <Hero />
+    <div className="app-container">
+      <Controls />
       <Grid />
-    </GridProvider>
+    </div>
   );
-}
+};
 
 export default App;
