@@ -3,6 +3,7 @@ import { useCallback, useEffect, useState } from 'react';
 import GridLayout, { Layout } from 'react-grid-layout';
 import './grid.css';
 import { useUpdateWidth } from '@/hooks/use-update-width';
+import { Cross } from '@/icons/cross';
 
 export const Grid = () => {
   const { cols, rows, rowHeight, gap, layout, setLayout } = useGridConfig();
@@ -66,6 +67,17 @@ export const Grid = () => {
     }
   }, [rows, layout, setLayout]);
 
+  const handleRemoveItem = useCallback(
+    (itemId: string, e: React.MouseEvent) => {
+      e.stopPropagation();
+      e.preventDefault();
+
+      const updatedLayout = layout.filter((item) => item.i !== itemId);
+      setLayout(updatedLayout);
+    },
+    [layout, setLayout]
+  );
+
   const margin: [number, number] = [gap, gap];
   const containerHeight = rows * rowHeight + (rows - 1) * gap;
 
@@ -116,6 +128,13 @@ export const Grid = () => {
           {layout.map((item) => (
             <div key={item.i} className="grid-layout__item">
               <div className="grid-layout__item-content">{item.i}</div>
+              <button
+                className="grid-layout__item-remove"
+                onClick={(e) => handleRemoveItem(item.i, e)}
+                aria-label="Remove item"
+              >
+                <Cross />
+              </button>
             </div>
           ))}
         </GridLayout>
