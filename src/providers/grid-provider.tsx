@@ -6,20 +6,28 @@ const MAX_ROWS = 12;
 const MAX_GAP = 30;
 
 interface GridConfigContextType {
-  cols: number;
-  rows: number;
-  rowHeight: number;
-  gap: number;
-  layout: Layout[];
-  setLayout: (layout: Layout[]) => void;
-  incrementCols: () => void;
-  decrementCols: () => void;
-  incrementRows: () => void;
-  decrementRows: () => void;
-  incrementRowHeight: () => void;
-  decrementRowHeight: () => void;
-  incrementGap: () => void;
-  decrementGap: () => void;
+  state: {
+    cols: number;
+    rows: number;
+    rowHeight: number;
+    gap: number;
+    layout: Layout[];
+  };
+  actions: {
+    setLayout: (layout: Layout[]) => void;
+    incrementCols: () => void;
+    decrementCols: () => void;
+    incrementRows: () => void;
+    decrementRows: () => void;
+    incrementRowHeight: () => void;
+    decrementRowHeight: () => void;
+    incrementGap: () => void;
+    decrementGap: () => void;
+    setGap: (gap: number) => void;
+    setCols: (cols: number) => void;
+    setRows: (rows: number) => void;
+    setRowHeight: (rowHeight: number) => void;
+  };
 }
 
 const GridConfigContext = createContext<GridConfigContextType | undefined>(
@@ -83,20 +91,28 @@ export const GridConfigProvider: React.FC<GridConfigProviderProps> = ({
   };
 
   const value = {
-    cols,
-    rows,
-    rowHeight,
-    gap,
-    layout,
-    setLayout,
-    incrementCols,
-    decrementCols,
-    incrementRows,
-    decrementRows,
-    incrementRowHeight,
-    decrementRowHeight,
-    incrementGap,
-    decrementGap,
+    state: {
+      cols,
+      rows,
+      rowHeight,
+      gap,
+      layout,
+    },
+    actions: {
+      setLayout,
+      incrementCols,
+      decrementCols,
+      incrementRows,
+      decrementRows,
+      incrementRowHeight,
+      decrementRowHeight,
+      incrementGap,
+      decrementGap,
+      setGap,
+      setCols,
+      setRows,
+      setRowHeight,
+    },
   };
 
   return (

@@ -4,7 +4,10 @@ import { useCallback, useEffect, useState } from 'react';
 import { Layout } from 'react-grid-layout';
 
 export const useGrid = () => {
-  const { cols, rows, rowHeight, gap, layout, setLayout } = useGridConfig();
+  const {
+    state: { cols, rows, rowHeight, gap, layout },
+    actions: { setLayout },
+  } = useGridConfig();
   const containerWidth = useUpdateWidth();
   const [nextId, setNextId] = useState(2);
 

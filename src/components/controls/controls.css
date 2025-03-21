@@ -1,14 +1,71 @@
-.grid-controls__button {
-  width: 40px;
-  height: 40px;
+.grid-controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 35px;
+}
+
+.grid-controls__label {
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 18px;
-  font-weight: bold;
-  background-color: #fff;
-  border: 2px solid #ddd;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 0.2s;
+  margin-bottom: 10px;
+  font-weight: 500;
+  color: var(--color-primary-13);
+}
+
+.grid-controls__control {
+  display: flex;
+  flex-direction: column;
+}
+
+.grid-controls__buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.button-top {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.button-bottom {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+
+  height: 100%;
+}
+
+.input-content {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  outline: none;
+  border: none;
+  color: var(--color-text);
+  font-size: 18px;
+  width: 120px;
+  height: 100%;
+  background-color: var(--color-primary-1);
+}
+
+@media (min-width: 768px) {
+  .grid-controls {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+
+  .input-container {
+    width: 120px;
+  }
 }
