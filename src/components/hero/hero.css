@@ -1,16 +1,29 @@
-.hero {
-  color: var(--text);
+.hero-section {
+  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  height: 200px;
-  width: 100%;
-  padding: 0 1rem;
+  margin-bottom: 75px;
+}
+
+.title {
+  display: block;
+  font-size: 102px;
+  font-weight: 700;
+  color: var(--color-text);
+  z-index: 999999;
+  line-height: 0.5;
+  margin: 50px 0 20px 0;
+}
+
+.subtitle {
+  max-width: 550px;
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-text-secondary);
   text-align: center;
-  font-size: 1.5rem;
-  font-weight: 500;
-  line-height: 1.5;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
+  z-index: 999999;
 }
