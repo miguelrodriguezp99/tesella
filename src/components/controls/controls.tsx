@@ -90,7 +90,7 @@ export const Controls = () => {
       </div>
 
       <div className="grid-controls__control">
-        <span className="grid-controls__label">Row Height</span>
+        <span className="grid-controls__label">Height</span>
         <div className="grid-controls__buttons">
           <Button className="button-top" onClick={incrementRowHeight}>
             <Plus />

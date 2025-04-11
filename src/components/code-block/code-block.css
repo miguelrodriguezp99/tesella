@@ -1,0 +1,115 @@
+.code-block-wrapper {
+  position: relative;
+  margin: 1rem 0;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--color-primary-6);
+  background: linear-gradient(to right, #0e0e0e, #151515);
+}
+
+.prism-code {
+  border: none !important;
+}
+
+.code-block {
+  font-family: 'JetBrains Mono', 'Fira Code', Consolas, Monaco, 'Andale Mono',
+    'Ubuntu Mono', monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  padding: 1.25rem 0.75rem 1.25rem 3rem !important;
+  margin: 0;
+  overflow-x: auto;
+  white-space: pre;
+  counter-reset: line;
+  tab-size: 2;
+  -moz-tab-size: 2;
+  background: transparent !important;
+}
+
+.code-line {
+  display: flex;
+  line-height: 1.5rem;
+  position: relative;
+}
+
+.line-number {
+  position: absolute;
+  left: -2.25rem;
+  width: 2rem;
+  text-align: right;
+  color: var(--color-secondary-8);
+  opacity: 0.4;
+  font-size: 0.8rem;
+  user-select: none;
+}
+
+.line-content {
+  padding-left: 0.5rem;
+}
+
+.copy-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s, background-color 0.2s;
+  z-index: 10;
+}
+
+.copy-button:hover {
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.copy-button.copied {
+  background-color: #03a9f4;
+}
+
+.copy-tooltip {
+  position: absolute;
+  right: 40px;
+  top: 6px;
+  background: var(--color-secondary-3);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  color: white;
+  animation: fadeIn 0.3s;
+  white-space: nowrap;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .code-block {
+    font-size: 0.8rem;
+    padding-left: 2.5rem !important;
+  }
+
+  .line-number {
+    left: -1.75rem;
+    width: 1.5rem;
+    font-size: 0.7rem;
+  }
+}

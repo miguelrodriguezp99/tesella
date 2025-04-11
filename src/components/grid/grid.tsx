@@ -18,6 +18,8 @@ export const Grid = () => {
     },
   } = useGrid();
 
+  console.log('Grid layout:', layout);
+
   return (
     <div className="grid-layout-wrapper">
       <div

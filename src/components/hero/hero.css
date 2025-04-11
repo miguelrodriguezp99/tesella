@@ -8,12 +8,12 @@
 
 .title {
   display: block;
-  font-size: 102px;
+  font-size: 116px;
   font-weight: 700;
   color: var(--color-text);
   z-index: 999999;
   line-height: 0.5;
-  margin: 50px 0 20px 0;
+  margin: 75px 0 20px 0;
 }
 
 .subtitle {

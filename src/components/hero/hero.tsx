@@ -8,7 +8,7 @@ export const Hero = () => {
         Tesella is a CSS and Tailwind grid generator tool that helps developers
         create custom Tailwind grid layouts more easily.
       </span>
-      <div className="sphere sphere-1 radial-gradient"></div>
+      <div className="sphere sphere-1 main-radial-gradient"></div>
     </section>
   );
 };

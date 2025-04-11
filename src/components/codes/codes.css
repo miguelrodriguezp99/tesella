@@ -1,0 +1,34 @@
+.codes-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.code-block {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 1rem;
+  margin: 0;
+  overflow-x: auto;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  line-height: 1.5;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.code-block code {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  display: block;
+  font-size: 0.9rem;
+}
+
+.codes-container .tab-content {
+  padding: 1rem;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
