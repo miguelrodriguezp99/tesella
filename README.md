@@ -1,55 +1,49 @@
-# React + TypeScript + Vite
+# Tesella - CSS Grid & Tailwind Generator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Tesella Screenshot](docs/screenshot.png)
 
-Currently, two official plugins are available:
+## About
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Tesella is a powerful CSS Grid and Tailwind layout generation tool designed to help developers visually create and customize responsive grid layouts with ease. The application provides an intuitive drag-and-drop interface for designing grids and automatically generates clean, production-ready code.
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Visual Grid Editor**: Drag-and-drop interface for designing grid layouts
+- **Multi-format Code Generation**: Outputs HTML, CSS, JSX, and Tailwind code
+- **Real-time Updates**: See code updates as you modify the grid
+- **Customizable Parameters**: Adjust columns, rows, heights, and gap spacing
+- **Modern Syntax Highlighting**: Clean, readable code snippets with copy functionality
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Getting Started
+
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/tesella.git
+
+# Navigate to project directory
+cd tesella
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Usage
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1. Configure your grid using the controls at the top
+2. Click on cells to add grid elements
+3. Drag elements to position them
+4. Resize elements using the handles
+5. View and copy the generated code in your preferred format
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
-# grid-generator
+For detailed instructions, see the [User Guide](src/docs/user-guide.md).
+
+## Development
+
+Tesella is built with React, TypeScript, and Vite. For information about the project architecture and how to contribute, please refer to the [Technical Guide](src/docs/technical-guide.md).
+
+## License
+
+[MIT](LICENSE)
