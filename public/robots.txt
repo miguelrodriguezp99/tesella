@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://tesella.app/sitemap.xml
+Sitemap: https://tesella.vercel.app/sitemap.xml

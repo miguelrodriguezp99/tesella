@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
 		<loc>
-			https://tesella.app/
+			https://tesella.vercel.app/
 		</loc>
 		<lastmod>
 			2025-04-11
@@ -16,7 +16,7 @@
 	</url>
 	<url>
 		<loc>
-			https://tesella.app/docs/user-guide
+			https://tesella.vercel.app/docs/user-guide
 		</loc>
 		<lastmod>
 			2025-04-11
@@ -30,7 +30,7 @@
 	</url>
 	<url>
 		<loc>
-			https://tesella.app/docs/technical-guide
+			https://tesella.vercel.app/docs/technical-guide
 		</loc>
 		<lastmod>
 			2025-04-11

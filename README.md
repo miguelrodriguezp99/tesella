@@ -1,6 +1,6 @@
 # Tesella - CSS Grid & Tailwind Generator
 
-![Tesella Screenshot](docs/screenshot.png)
+![Tesella Screenshot](public/tesella.png)
 
 ## About
 
@@ -19,6 +19,9 @@ Tesella is a powerful CSS Grid and Tailwind layout generation tool designed to h
 ```bash
 # Clone the repository
 git clone https://github.com/yourusername/tesella.git
+
+# Or visit the live site
+https://tesella.vercel.app
 
 # Navigate to project directory
 cd tesella
