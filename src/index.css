@@ -6,6 +6,14 @@
   src: url(/fonts/GeistVF.woff2) format('woff2');
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 :root {
   background-color: var(--color-primary);
   color: var(--color-text);

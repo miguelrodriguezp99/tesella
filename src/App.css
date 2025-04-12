@@ -1,14 +1,16 @@
 .app-container {
-  max-width: 1200px;
-  width: 90%;
+  max-width: 100dvw;
+  width: 100%;
   margin: 0 auto;
-  padding: 20px;
-  overflow: visible;
+  padding: 30px;
+  overflow: hidden;
   position: relative;
 }
 
 @media (min-width: 768px) {
-  .app-container {
-    width: 70%;
+  .main-container {
+    margin: 0 auto;
+    width: 80%;
+    max-width: 1200px;
   }
 }

@@ -12,12 +12,14 @@ const App = () => {
   return (
     <SeoWrapper>
       <div className="app-container">
-        <Hero />
-        <Controls />
-        <Grid />
-        <div className="sphere sphere-2 radial-gradient"></div>
         <div className="sphere sphere-3 radial-gradient"></div>
-        <Codes />
+        <div className="sphere sphere-2 radial-gradient"></div>
+        <div className="main-container">
+          <Hero />
+          <Controls />
+          <Grid />
+          <Codes />
+        </div>
         <Toaster position="top-center" />
       </div>
     </SeoWrapper>
