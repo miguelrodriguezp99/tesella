@@ -1,0 +1,30 @@
+{
+	"subtitle": "Geliştiricilerin özel grid düzenlerini daha kolay oluşturmasına yardımcı olan bir CSS ve Tailwind grid oluşturucu aracı.",
+	"controls": {
+		"columns": "Sütunlar",
+		"rows": "Satırlar",
+		"height": "Yükseklik",
+		"gap": "Boşluk"
+	},
+	"code": {
+		"copied": "Kod kopyalandı!",
+		"copyError": "Kod kopyalanamadı",
+		"copyLabel": "Kodu panoya kopyala"
+	},
+	"seo": {
+		"h1": "Tesella - CSS Grid ve Tailwind Düzen Oluşturucu",
+		"h2": "Web Geliştiricileri için Görsel Grid Düzen Oluşturucu",
+		"description": "İnteraktif grid oluşturucumuzla görsel olarak duyarlı CSS Grid düzenleri oluşturun. Sütunları, satırları ve boşlukları yapılandırın, ardından HTML, CSS, JSX veya Tailwind formatında temiz kod dışa aktarın.",
+		"features": "Temel Özellikler",
+		"feature1title": "Görsel Grid Düzenleyici",
+		"feature1desc": "Düzenleri tasarlamak için sürükle-bırak arayüzü",
+		"feature2title": "Çoklu Format Kod Üretimi",
+		"feature2desc": "HTML, CSS, JSX ve Tailwind çıktısı",
+		"feature3title": "Gerçek Zamanlı Güncellemeler",
+		"feature3desc": "Grid değişikliklerinde kod değişikliklerini anında görün",
+		"feature4title": "Özelleştirilebilir Parametreler",
+		"feature4desc": "Sütunları, satırları, yüksekliği ve boşlukları ayarlayın",
+		"feature5title": "Geliştirici Dostu",
+		"feature5desc": "Üretime hazır temiz, optimize edilmiş kod"
+	}
+}

@@ -1,0 +1,30 @@
+{
+	"subtitle": "Een CSS- en Tailwind-gridgenerator die ontwikkelaars helpt om eenvoudiger aangepaste gridlay-outs te maken.",
+	"controls": {
+		"columns": "Kolommen",
+		"rows": "Rijen",
+		"height": "Hoogte",
+		"gap": "Tussenruimte"
+	},
+	"code": {
+		"copied": "Code gekopieerd!",
+		"copyError": "Kopiëren van code mislukt",
+		"copyLabel": "Code naar klembord kopiëren"
+	},
+	"seo": {
+		"h1": "Tesella - CSS Grid & Tailwind Layout Generator",
+		"h2": "Visuele gridlay-outbouwer voor webontwikkelaars",
+		"description": "Maak visueel responsieve CSS Grid-lay-outs met onze interactieve gridgenerator. Configureer kolommen, rijen en tussenruimte en exporteer schone code in HTML, CSS, JSX of Tailwind.",
+		"features": "Belangrijkste functies",
+		"feature1title": "Visuele grideditor",
+		"feature1desc": "Drag-and-drop interface voor het ontwerpen van lay-outs",
+		"feature2title": "Multi-format codegeneratie",
+		"feature2desc": "Output in HTML, CSS, JSX en Tailwind",
+		"feature3title": "Realtime updates",
+		"feature3desc": "Zie codewijzigingen direct bij het aanpassen van het grid",
+		"feature4title": "Aanpasbare parameters",
+		"feature4desc": "Pas kolommen, rijen, hoogte en tussenruimte aan",
+		"feature5title": "Ontwikkelaarsvriendelijk",
+		"feature5desc": "Schone, geoptimaliseerde code klaar voor productie"
+	}
+}

@@ -1,0 +1,30 @@
+{
+	"subtitle": "A CSS and Tailwind grid generator tool that helps developers create custom grid layouts more easily.",
+	"controls": {
+		"columns": "Columns",
+		"rows": "Rows",
+		"height": "Height",
+		"gap": "Gap"
+	},
+	"code": {
+		"copied": "Code copied!",
+		"copyError": "Failed to copy code",
+		"copyLabel": "Copy code to clipboard"
+	},
+	"seo": {
+		"h1": "Tesella - CSS Grid & Tailwind Layout Generator",
+		"h2": "Visual Grid Layout Builder for Web Developers",
+		"description": "Create responsive CSS Grid layouts visually with our interactive grid generator. Configure columns, rows, and spacing, then export clean code in HTML, CSS, JSX, or Tailwind format.",
+		"features": "Key Features",
+		"feature1title": "Visual Grid Editor",
+		"feature1desc": "Drag-and-drop interface for designing layouts",
+		"feature2title": "Multi-format Code Generation",
+		"feature2desc": "HTML, CSS, JSX, and Tailwind output",
+		"feature3title": "Real-time Updates",
+		"feature3desc": "See code changes instantly as you modify the grid",
+		"feature4title": "Customizable Parameters",
+		"feature4desc": "Adjust columns, rows, height, and spacing",
+		"feature5title": "Developer-Friendly",
+		"feature5desc": "Clean, optimized code ready for production"
+	}
+}

@@ -1,0 +1,30 @@
+{
+	"subtitle": "Narzędzie do generowania siatek CSS i Tailwind, które pomaga programistom łatwiej tworzyć niestandardowe układy siatki.",
+	"controls": {
+		"columns": "Kolumny",
+		"rows": "Wiersze",
+		"height": "Wysokość",
+		"gap": "Odstęp"
+	},
+	"code": {
+		"copied": "Kod skopiowany!",
+		"copyError": "Nie udało się skopiować kodu",
+		"copyLabel": "Skopiuj kod do schowka"
+	},
+	"seo": {
+		"h1": "Tesella - Generator układów CSS Grid i Tailwind",
+		"h2": "Wizualny kreator układów siatki dla programistów webowych",
+		"description": "Twórz wizualnie responsywne układy CSS Grid za pomocą naszego interaktywnego generatora siatek. Skonfiguruj kolumny, wiersze i odstępy, a następnie eksportuj czysty kod w formacie HTML, CSS, JSX lub Tailwind.",
+		"features": "Główne funkcje",
+		"feature1title": "Wizualny edytor siatek",
+		"feature1desc": "Interfejs przeciągnij i upuść do projektowania układów",
+		"feature2title": "Generowanie kodu w wielu formatach",
+		"feature2desc": "Wyjście w HTML, CSS, JSX i Tailwind",
+		"feature3title": "Aktualizacje w czasie rzeczywistym",
+		"feature3desc": "Natychmiast zobacz zmiany kodu podczas modyfikacji siatki",
+		"feature4title": "Konfigurowalne parametry",
+		"feature4desc": "Dostosuj kolumny, wiersze, wysokość i odstępy",
+		"feature5title": "Przyjazny dla programistów",
+		"feature5desc": "Czysty, zoptymalizowany kod gotowy do produkcji"
+	}
+}

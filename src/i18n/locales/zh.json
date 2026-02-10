@@ -1,0 +1,30 @@
+{
+	"subtitle": "一个CSS和Tailwind网格生成器工具，帮助开发者更轻松地创建自定义网格布局。",
+	"controls": {
+		"columns": "列数",
+		"rows": "行数",
+		"height": "高度",
+		"gap": "间距"
+	},
+	"code": {
+		"copied": "代码已复制！",
+		"copyError": "复制代码失败",
+		"copyLabel": "将代码复制到剪贴板"
+	},
+	"seo": {
+		"h1": "Tesella - CSS Grid 和 Tailwind 布局生成器",
+		"h2": "面向Web开发者的可视化网格布局构建器",
+		"description": "使用我们的交互式网格生成器，以可视化方式创建响应式CSS Grid布局。配置列、行和间距，然后导出HTML、CSS、JSX或Tailwind格式的干净代码。",
+		"features": "核心功能",
+		"feature1title": "可视化网格编辑器",
+		"feature1desc": "拖放界面设计布局",
+		"feature2title": "多格式代码生成",
+		"feature2desc": "支持HTML、CSS、JSX和Tailwind输出",
+		"feature3title": "实时更新",
+		"feature3desc": "修改网格时即时查看代码变化",
+		"feature4title": "可自定义参数",
+		"feature4desc": "调整列数、行数、高度和间距",
+		"feature5title": "开发者友好",
+		"feature5desc": "干净优化的代码，可直接用于生产环境"
+	}
+}

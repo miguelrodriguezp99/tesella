@@ -1,4 +1,12 @@
 User-agent: *
 Allow: /
+Disallow: /assets/
 
 Sitemap: https://tesella.vercel.app/sitemap.xml
+
+# Crawl-delay for polite crawling
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /

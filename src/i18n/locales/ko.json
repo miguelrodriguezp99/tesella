@@ -1,0 +1,30 @@
+{
+	"subtitle": "개발자가 맞춤형 그리드 레이아웃을 더 쉽게 만들 수 있도록 도와주는 CSS 및 Tailwind 그리드 생성 도구입니다.",
+	"controls": {
+		"columns": "열",
+		"rows": "행",
+		"height": "높이",
+		"gap": "간격"
+	},
+	"code": {
+		"copied": "코드가 복사되었습니다!",
+		"copyError": "코드 복사에 실패했습니다",
+		"copyLabel": "클립보드에 코드 복사"
+	},
+	"seo": {
+		"h1": "Tesella - CSS 그리드 & Tailwind 레이아웃 생성기",
+		"h2": "웹 개발자를 위한 비주얼 그리드 레이아웃 빌더",
+		"description": "인터랙티브 그리드 생성기로 반응형 CSS 그리드 레이아웃을 시각적으로 만드세요. 열, 행, 간격을 설정하고 HTML, CSS, JSX 또는 Tailwind 형식으로 깔끔한 코드를 내보내세요.",
+		"features": "주요 기능",
+		"feature1title": "비주얼 그리드 편집기",
+		"feature1desc": "드래그 앤 드롭으로 레이아웃 디자인",
+		"feature2title": "멀티 포맷 코드 생성",
+		"feature2desc": "HTML, CSS, JSX, Tailwind 출력",
+		"feature3title": "실시간 업데이트",
+		"feature3desc": "그리드 수정 시 코드 변경 사항을 즉시 확인",
+		"feature4title": "커스터마이징 가능한 매개변수",
+		"feature4desc": "열, 행, 높이, 간격 조정",
+		"feature5title": "개발자 친화적",
+		"feature5desc": "프로덕션에 바로 사용 가능한 깔끔하고 최적화된 코드"
+	}
+}

@@ -1,0 +1,30 @@
+{
+	"subtitle": "Ein CSS- und Tailwind-Grid-Generator, der Entwicklern hilft, benutzerdefinierte Grid-Layouts einfacher zu erstellen.",
+	"controls": {
+		"columns": "Spalten",
+		"rows": "Zeilen",
+		"height": "Höhe",
+		"gap": "Abstand"
+	},
+	"code": {
+		"copied": "Code kopiert!",
+		"copyError": "Code konnte nicht kopiert werden",
+		"copyLabel": "Code in die Zwischenablage kopieren"
+	},
+	"seo": {
+		"h1": "Tesella - CSS Grid & Tailwind Layout Generator",
+		"h2": "Visueller Grid-Layout-Builder für Webentwickler",
+		"description": "Erstellen Sie visuell responsive CSS-Grid-Layouts mit unserem interaktiven Grid-Generator. Konfigurieren Sie Spalten, Zeilen und Abstände und exportieren Sie sauberen Code in HTML, CSS, JSX oder Tailwind.",
+		"features": "Hauptfunktionen",
+		"feature1title": "Visueller Grid-Editor",
+		"feature1desc": "Drag-and-Drop-Oberfläche zum Entwerfen von Layouts",
+		"feature2title": "Multi-Format-Codegenerierung",
+		"feature2desc": "Ausgabe in HTML, CSS, JSX und Tailwind",
+		"feature3title": "Echtzeit-Aktualisierungen",
+		"feature3desc": "Sehen Sie Codeänderungen sofort bei Grid-Änderungen",
+		"feature4title": "Anpassbare Parameter",
+		"feature4desc": "Spalten, Zeilen, Höhe und Abstände anpassen",
+		"feature5title": "Entwicklerfreundlich",
+		"feature5desc": "Sauberer, optimierter Code für die Produktion"
+	}
+}

@@ -1,0 +1,35 @@
+.bmc-btn {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 8px 12px;
+	background-color: #5f7fff;
+	color: #ffffff;
+	border: none;
+	border-radius: 8px;
+	font-family: "Geist", Arial, sans-serif;
+	font-size: 13px;
+	font-weight: 600;
+	text-decoration: none;
+	cursor: pointer;
+	transition: background 0.2s;
+}
+
+.bmc-btn:hover {
+	background-color: #4a6be0;
+}
+
+.bmc-btn__emoji {
+	font-size: 16px;
+	line-height: 1;
+}
+
+.bmc-btn__text {
+	white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+	.bmc-btn__text {
+		display: none;
+	}
+}

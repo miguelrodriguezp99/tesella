@@ -1,0 +1,30 @@
+{
+	"subtitle": "Un outil de génération de grilles CSS et Tailwind qui aide les développeurs à créer des mises en page personnalisées plus facilement.",
+	"controls": {
+		"columns": "Colonnes",
+		"rows": "Lignes",
+		"height": "Hauteur",
+		"gap": "Écart"
+	},
+	"code": {
+		"copied": "Code copié !",
+		"copyError": "Échec de la copie du code",
+		"copyLabel": "Copier le code dans le presse-papiers"
+	},
+	"seo": {
+		"h1": "Tesella - Générateur de CSS Grid et Tailwind",
+		"h2": "Constructeur visuel de mises en page pour développeurs web",
+		"description": "Créez visuellement des mises en page CSS Grid responsives avec notre générateur interactif. Configurez les colonnes, lignes et espacements, puis exportez du code propre en HTML, CSS, JSX ou Tailwind.",
+		"features": "Fonctionnalités clés",
+		"feature1title": "Éditeur visuel de grilles",
+		"feature1desc": "Interface glisser-déposer pour concevoir des mises en page",
+		"feature2title": "Génération de code multi-format",
+		"feature2desc": "Sortie en HTML, CSS, JSX et Tailwind",
+		"feature3title": "Mises à jour en temps réel",
+		"feature3desc": "Visualisez les changements de code instantanément",
+		"feature4title": "Paramètres personnalisables",
+		"feature4desc": "Ajustez les colonnes, lignes, hauteur et espacement",
+		"feature5title": "Conçu pour les développeurs",
+		"feature5desc": "Code propre et optimisé prêt pour la production"
+	}
+}

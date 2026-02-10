@@ -1,0 +1,30 @@
+{
+	"subtitle": "開発者がカスタムグリッドレイアウトをより簡単に作成できるCSSおよびTailwindグリッドジェネレーターツール。",
+	"controls": {
+		"columns": "カラム",
+		"rows": "行",
+		"height": "高さ",
+		"gap": "間隔"
+	},
+	"code": {
+		"copied": "コードをコピーしました！",
+		"copyError": "コードのコピーに失敗しました",
+		"copyLabel": "コードをクリップボードにコピー"
+	},
+	"seo": {
+		"h1": "Tesella - CSSグリッド＆Tailwindレイアウトジェネレーター",
+		"h2": "ウェブ開発者のためのビジュアルグリッドレイアウトビルダー",
+		"description": "インタラクティブなグリッドジェネレーターで、レスポンシブCSSグリッドレイアウトをビジュアルに作成。カラム、行、間隔を設定し、HTML、CSS、JSX、Tailwind形式できれいなコードをエクスポート。",
+		"features": "主な機能",
+		"feature1title": "ビジュアルグリッドエディター",
+		"feature1desc": "ドラッグ＆ドロップでレイアウトをデザイン",
+		"feature2title": "マルチフォーマットコード生成",
+		"feature2desc": "HTML、CSS、JSX、Tailwindで出力",
+		"feature3title": "リアルタイム更新",
+		"feature3desc": "グリッド変更時にコードの変更を即座に確認",
+		"feature4title": "カスタマイズ可能なパラメーター",
+		"feature4desc": "カラム、行、高さ、間隔を調整",
+		"feature5title": "開発者フレンドリー",
+		"feature5desc": "本番環境に対応したクリーンで最適化されたコード"
+	}
+}

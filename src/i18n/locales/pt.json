@@ -1,0 +1,30 @@
+{
+	"subtitle": "Uma ferramenta geradora de grids CSS e Tailwind que ajuda desenvolvedores a criar layouts de grade personalizados mais facilmente.",
+	"controls": {
+		"columns": "Colunas",
+		"rows": "Linhas",
+		"height": "Altura",
+		"gap": "Espaço"
+	},
+	"code": {
+		"copied": "Código copiado!",
+		"copyError": "Falha ao copiar o código",
+		"copyLabel": "Copiar código para a área de transferência"
+	},
+	"seo": {
+		"h1": "Tesella - Gerador de CSS Grid e Tailwind",
+		"h2": "Construtor visual de layouts para desenvolvedores web",
+		"description": "Crie layouts CSS Grid responsivos visualmente com nosso gerador interativo. Configure colunas, linhas e espaçamento, depois exporte código limpo em HTML, CSS, JSX ou Tailwind.",
+		"features": "Principais recursos",
+		"feature1title": "Editor visual de grids",
+		"feature1desc": "Interface de arrastar e soltar para projetar layouts",
+		"feature2title": "Geração de código multi-formato",
+		"feature2desc": "Saída em HTML, CSS, JSX e Tailwind",
+		"feature3title": "Atualizações em tempo real",
+		"feature3desc": "Veja as mudanças no código instantaneamente",
+		"feature4title": "Parâmetros personalizáveis",
+		"feature4desc": "Ajuste colunas, linhas, altura e espaçamento",
+		"feature5title": "Voltado para desenvolvedores",
+		"feature5desc": "Código limpo e otimizado pronto para produção"
+	}
+}
